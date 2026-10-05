@@ -24,7 +24,7 @@ DETAILED_UPDATE_INTERVAL_MS=1000
 
 run the development server using an `.env` file
 
-`npm run dev_env` (Node 20+, | --env-file=.env)
+`npm run dev`
 
 ### 3. FE workspace
 
