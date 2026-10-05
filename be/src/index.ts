@@ -1,6 +1,10 @@
 import { Simulation } from './simulation';
 import { createServer } from './server';
 
+// Without dotenv, it doesn't load env variables from .env
+// Node < 20 do not support --env-file=.env.
+import 'dotenv/config';
+
 /**
  * Load environment variables
  */
@@ -34,22 +38,18 @@ function main() {
     console.log(`   - ws://localhost:${PORT}/ws/planes/details`);
   });
 
-  // Graceful shutdown
-  process.on('SIGINT', () => {
+  function shuttingDown() {
     console.log('\n🛑 Shutting down...');
     wss.close(() => {
       console.log('✅ Server closed');
       process.exit(0);
     });
-  });
+  }
 
-  process.on('SIGTERM', () => {
-    console.log('\n🛑 Shutting down...');
-    wss.close(() => {
-      console.log('✅ Server closed');
-      process.exit(0);
-    });
-  });
+  // Graceful shutdown
+  process.on('SIGINT', shuttingDown);
+
+  process.on('SIGTERM', shuttingDown);
 }
 
 main();
