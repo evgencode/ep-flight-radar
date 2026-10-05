@@ -1,0 +1,51 @@
+:root {
+  --bg: #0b0f17;
+  --surface: rgba(17, 23, 34, 0.92);
+  --surface-2: #242e40;
+  --gray-solid: #666970;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #c9d1dc;
+  --text-h: #f3f6fa;
+  --text-muted: #8791a1;
+  --accent: #4ecdc4;
+  --danger: #ff6b6b;
+  --shadow: 2px 12px 32px rgba(0, 0, 0, 0.45);
+  --radius: 14px;
+  --plane-color: var(--surface);
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
+
+  font: 15px/1.45 var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+

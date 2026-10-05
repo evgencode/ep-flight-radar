@@ -1,0 +1,22 @@
+{
+  "name": "ep-flight-radar",
+  "private": true,
+  "workspaces": [
+    "be",
+    "fe"
+  ],
+  "scripts": {
+    "dev:be": "npm run dev_env -w be",
+    "dev:fe": "npm run dev -w fe",
+    "build": "npm run build --workspaces",
+    "lint": "npm run lint --workspaces",
+    "lint:fix": "npm run lint:fix --workspaces",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.6",
+    "prettier": "^3.9.9"
+  }
+}

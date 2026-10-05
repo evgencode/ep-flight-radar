@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+be/node_modules/
+fe/node_modules/
+
+# Build outputs
+be/dist/
+fe/dist/
+
+# Environment variables
+be/.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript
+*.tsbuildinfo
+
