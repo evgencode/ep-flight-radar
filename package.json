@@ -3,7 +3,8 @@
   "private": true,
   "workspaces": [
     "be",
-    "fe"
+    "fe",
+    "shared"
   ],
   "scripts": {
     "dev:be": "npm run dev_env -w be",

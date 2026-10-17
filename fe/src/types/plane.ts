@@ -1,45 +1,13 @@
-export type PlaneStatus = 'departed' | 'enroute' | 'cruising' | 'landing';
-
-export type PlaneBasic = {
-  id: string;
-  latitude: number;
-  longitude: number;
-  /** meters */
-  altitude: number;
-  color: string;
-};
+import type { PlaneBasic, PlaneDetailed as PlaneDetailedBe } from '@flr/shared';
 
 export type Airport = {
   airport: string;
   city: string;
 };
 
-export type PlaneDetailed = {
-  id: string;
-  model: string;
-  airline: string;
-  flightNumber: string;
-  registration: string;
-  latitude: number;
-  longitude: number;
-  /** meters */
-  altitude: number;
-  /** meters per second */
-  speed: number;
-  /** degrees, 0 = north */
-  heading: number;
-  /** meters per second */
-  verticalSpeed: number;
+export type PlaneDetailed = Omit<PlaneDetailedBe, 'origin' | 'destination'> & {
   origin: Airport;
   destination: Airport;
-  /** minutes since departure */
-  flightDuration: number;
-  /** arrival timestamp (ms) */
-  estimatedArrival: number;
-  numberOfPassengers: number;
-  maxPassengers: number;
-  status: PlaneStatus;
-  color: string;
 };
 
 export type PlanesMessage = { type: 'planes'; data: PlaneBasic[] };

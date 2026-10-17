@@ -20,7 +20,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": false, // allow use enum
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    /* shared workspace */
+    "paths": {
+      "@flr/shared": ["../shared/src/index.ts"]
+    }
   },
   "include": ["src"]
 }
