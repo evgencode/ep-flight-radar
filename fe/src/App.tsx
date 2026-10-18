@@ -10,6 +10,7 @@ function App() {
   const handleSelect = useCallback((id: string) => {
     setSelectedId(current => (current === id ? null : id));
   }, []);
+
   const handleDeselect = useCallback(() => setSelectedId(null), []);
 
   useEffect(() => {

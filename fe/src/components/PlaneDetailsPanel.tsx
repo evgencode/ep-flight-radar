@@ -7,7 +7,7 @@ type Props = {
 };
 
 export function PlaneDetailsPanel({ planeId, onClose }: Props) {
-  const { details, error } = usePlaneDetails(planeId);
+  const { details, error, receivedAt } = usePlaneDetails(planeId);
 
   return (
     <aside
@@ -28,7 +28,7 @@ export function PlaneDetailsPanel({ planeId, onClose }: Props) {
           <p>Loading {planeId}…</p>
         </div>
       ) : (
-        <DetailsContent details={details} />
+        <DetailsContent details={details} receivedAt={receivedAt} />
       )}
     </aside>
   );

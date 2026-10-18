@@ -10,7 +10,6 @@ import {
   formatVerticalSpeed,
 } from '../utils/format.ts';
 import { Stat } from './Stat.tsx';
-import { useNow } from '../hooks/useNow.ts';
 
 const STATUS_LABELS: Record<PlaneStatus, string> = {
   departed: 'Departed',
@@ -19,13 +18,17 @@ const STATUS_LABELS: Record<PlaneStatus, string> = {
   landing: 'Landing',
 };
 
-export function DetailsContent({ details }: { details: PlaneDetailed }) {
-  const now = useNow();
-  const elapsedMin = details.flightDuration; // minutes
-  // Estimated arrival ms | Date.now() + flightTimeHours * 3600_000;
-  const estimatedArrival = details.estimatedArrival;
-  const remainingMin = Math.max(0, (estimatedArrival - now) / 60000);
-  const progress = elapsedMin + remainingMin > 0 ? elapsedMin / (elapsedMin + remainingMin) : 0;
+type Props = {
+  details: PlaneDetailed;
+  receivedAt: number;
+};
+
+export function DetailsContent({ details, receivedAt }: Props) {
+  // details.estimatedArrival - Estimated arrival ms | Date.now() + flightTimeHours * 3600_000; form now to 2 - 6 h
+  // time of arrival - current time
+  const remainingMin = Math.max(0, (details.estimatedArrival - receivedAt) / 60000);
+  const total = details.flightDuration + remainingMin; // min
+  const progress = total > 0 ? details.flightDuration / total : 0;
 
   const occupancy =
     details.maxPassengers > 0 ? details.numberOfPassengers / details.maxPassengers : 0;

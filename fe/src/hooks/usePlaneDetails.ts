@@ -7,6 +7,7 @@ type DetailsState = {
   planeId: string;
   details: PlaneDetailed | null;
   error: string | null;
+  receivedAt: number; // Date.now()
 };
 
 /**
@@ -51,10 +52,20 @@ export function usePlaneDetails(planeId: string | null) {
         if (message.type === 'plane-details') {
           // Ignore late updates for a previously selected plane.
           if (message.data.id === current) {
-            setState({ planeId: current, details: message.data, error: null });
+            setState({
+              planeId: current,
+              details: message.data,
+              error: null,
+              receivedAt: Date.now(),
+            });
           }
         } else if (message.type === 'error') {
-          setState({ planeId: current, details: null, error: message.message });
+          setState({
+            planeId: current,
+            details: null,
+            error: message.message,
+            receivedAt: Date.now(),
+          });
           // Server closes the connection for unknown planes - don't reconnect in a loop.
           if (/not found/i.test(message.message) && socketRef.current === socket) {
             socket.stop();
@@ -81,5 +92,6 @@ export function usePlaneDetails(planeId: string | null) {
     details: current?.details ?? null,
     error: current?.error ?? null,
     loading: planeId !== null && !current,
+    receivedAt: current.receivedAt,
   };
 }
