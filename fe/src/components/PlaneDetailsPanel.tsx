@@ -22,7 +22,7 @@ export function PlaneDetailsPanel({ planeId, onClose }: Props) {
           <strong>Couldn't load {planeId}</strong>
           <p>{error}</p>
         </div>
-      ) : !details ? (
+      ) : !details && !receivedAt ? (
         <div className="details-panel__message">
           <div className="spinner" />
           <p>Loading {planeId}…</p>

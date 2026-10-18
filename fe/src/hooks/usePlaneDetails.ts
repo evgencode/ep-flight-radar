@@ -7,7 +7,7 @@ type DetailsState = {
   planeId: string;
   details: PlaneDetailed | null;
   error: string | null;
-  receivedAt: number; // Date.now()
+  receivedAt: number; // Date.now() subscription message
 };
 
 /**
@@ -92,6 +92,6 @@ export function usePlaneDetails(planeId: string | null) {
     details: current?.details ?? null,
     error: current?.error ?? null,
     loading: planeId !== null && !current,
-    receivedAt: current.receivedAt,
+    receivedAt: current?.receivedAt,
   };
 }

@@ -25,9 +25,8 @@ type Props = {
 
 export function DetailsContent({ details, receivedAt }: Props) {
   // details.estimatedArrival - Estimated arrival ms | Date.now() + flightTimeHours * 3600_000; form now to 2 - 6 h
-  // time of arrival - current time
   const remainingMin = Math.max(0, (details.estimatedArrival - receivedAt) / 60000);
-  const total = details.flightDuration + remainingMin; // min
+  const total = details.flightDuration + remainingMin; // in min
   const progress = total > 0 ? details.flightDuration / total : 0;
 
   const occupancy =
