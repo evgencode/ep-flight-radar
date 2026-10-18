@@ -1,4 +1,4 @@
-import type { PlaneBasic } from '../types/plane.ts';
+import type { PlaneBasic } from '@flr/shared';
 import { useMap } from 'react-leaflet';
 import { useEffect, useRef } from 'react';
 import L from 'leaflet';

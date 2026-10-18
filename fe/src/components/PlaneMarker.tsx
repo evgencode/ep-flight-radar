@@ -2,7 +2,7 @@ import rhumbBearing from '@turf/rhumb-bearing';
 import L from 'leaflet';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Marker, Polyline } from 'react-leaflet';
-import type { PlaneBasic } from '../types/plane';
+import type { PlaneBasic } from '@flr/shared';
 import { PLANE_ICON } from '../utils/common.ts';
 
 type PlaneMarkerProps = {

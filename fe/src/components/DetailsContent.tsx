@@ -1,4 +1,4 @@
-import type { PlaneDetailed, PlaneStatus } from '../types/plane.ts';
+import type { PlaneDetailed, PlaneStatus } from '@flr/shared';
 import {
   formatAltitude,
   formatClock,

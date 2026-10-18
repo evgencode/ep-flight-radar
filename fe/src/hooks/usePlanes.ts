@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { WS_BASIC_URL } from '../config';
 import { ReconnectingSocket, type SocketStatus } from '../lib/ReconnectingSocket';
-import type { PlaneBasic } from '../types/plane';
+import type { PlaneBasic } from '@flr/shared';
 
 /** Subscribes to the basic broadcast of all planes. */
 export function usePlanes() {
